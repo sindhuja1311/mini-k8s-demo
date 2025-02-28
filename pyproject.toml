@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini_k8s_demo"
+version = "1.0.0"
+description = "A simple Flask application for Kubernetes demonstration"
+authors = [{name = "Your Name", email = "your.email@example.com"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "Flask==2.2.3"\]
+
+[tool.setuptools]
+packages = ["app"]
