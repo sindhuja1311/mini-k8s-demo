@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "vishnuvardhandommeti/mini-k8s-demo:latest"
+        DOCKER_IMAGE = "sindhhuja/mini-k8s-demo:latest"
         MINIKUBE_HOME = "/home/jenkins/.minikube"
         KUBECONFIG = "/home/jenkins/.kube/config"
     }
@@ -14,7 +14,7 @@ pipeline {
                     retry(3) {
                         checkout([$class: 'GitSCM', 
                             branches: [[name: '*/main']], 
-                            userRemoteConfigs: [[url: 'https://github.com/VishnuVardhan-dommeti/mini-k8s-demo.git']]
+                            userRemoteConfigs: [[url: 'https://github.com/gsindhuja1311/mini-k8s-demo.git']]
                         ])
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
-                        sh 'docker push vishnuvardhandommeti/mini-k8s-demo:latest'
+                        sh 'docker push sindhhuja/mini-k8s-demo:latest'
                     }
                 }
             }
